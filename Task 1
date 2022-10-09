@@ -1,0 +1,20 @@
+class GreenZoneIndex:
+    def __init__(self, territory_name, territory_area, green_zones):
+        self.territory_name = territory_name
+        self.territory_area = territory_area
+        self.green_zones = green_zones
+
+        self.green_index = self.calculate_green_index()
+
+    def calculate_green_index(self):
+        """ Метод для вычисления индекса озеленения.
+        Индекс рассчитывается как отношение площади всех парков к площади территории """
+        all_green_zones = sum(self.green_zones)
+        green_index = (all_green_zones / self.territory_area) * 100
+        return round(green_index, 2)
+           
+        # TODO посчитать индекс озеленения с атрибутов экземпляра класса
+
+sample = GreenZoneIndex ("Пушкин", 28676, [302, 487, 420, 325, 471, 363, 404]) # TODO Создать экземпряр класса и с помощью его атрибутов распечатать индекс озеленения в процентах до 2 знака после запятой. 
+
+print(f"Индекс озеленения территории {sample.territory_name} равен {sample.calculate_green_index()}%")
